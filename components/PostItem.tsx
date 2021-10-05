@@ -1,16 +1,23 @@
-import React from 'react'
+import React from 'react';
 import { IPosts } from '../types/posts';
+import styles from '../styles/PostItem.module.scss';
+import { useRouter } from 'next/dist/client/router';
 
 interface PostItemProps {
-    post: IPosts;
+  post: IPosts;
 }
 
-const PostItem: React.FC<PostItemProps> = ({post}) => {
-    return (
-        <div>
-            {post.titlle}
-        </div>
-    )
-}
+const PostItem: React.FC<PostItemProps> = ({ post }) => {
+  const router = useRouter();
+  console.log(post);
+  return (
+    <div onClick={() => router.push('/posts/' + post.id)} className={styles.postItem}>
+      <h1>
+        {post.id}.{post.title}
+      </h1>
+      <span>{post.body}</span>
+    </div>
+  );
+};
 
 export default PostItem;

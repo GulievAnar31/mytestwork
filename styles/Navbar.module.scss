@@ -1,0 +1,20 @@
+.navbar {
+  margin: auto;
+  width: 1373px;
+  height: 108px;
+  background: linear-gradient(180deg, rgba(162, 163, 164, 0.5) 0%, rgba(162, 163, 164, 0) 100%);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+
+  a {
+    padding: 20px;
+    font-family: Cuprum;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    text-decoration: none;
+    color: #ffffff;
+  }
+}
