@@ -4,7 +4,6 @@ import React from 'react';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import MainLayout from '../../layouts/MainLayout';
 
-
 const PostPage = () => {
   const router = useRouter();
   const { posts } = useTypedSelector((state) => state.posts);
@@ -16,9 +15,6 @@ const PostPage = () => {
   }
 
   let post = posts[Object.keys(posts)[elem - 1]];
-
-
-
 
   return (
     <MainLayout>

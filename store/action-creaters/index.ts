@@ -1,5 +1,5 @@
-import * as PostAcionCreaters from './posts'
+import * as PostAcionCreaters from './posts';
 
 export default {
-    ...PostAcionCreaters
-}
+  ...PostAcionCreaters,
+};

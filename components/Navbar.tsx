@@ -24,7 +24,7 @@ const menuItems = [
   { text: 'Главная', href: '/' },
   { text: 'Посты', href: '/posts' },
   { text: 'Добавить пост', href: '/new' },
-  {text: 'Последние сообщения', href: '/route'}
+  { text: 'Последние сообщения', href: '/route' },
 ];
 
 export default function Navbar() {
