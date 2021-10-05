@@ -1,40 +1,50 @@
+import { Button } from '@mui/material';
 import { Router, useRouter } from 'next/dist/client/router';
 import React from 'react';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import MainLayout from '../../layouts/MainLayout';
-import { IPosts } from '../../types/posts';
+
 
 const PostPage = () => {
   const router = useRouter();
+  const { posts } = useTypedSelector((state) => state.posts);
 
-  const post: IPosts = {
-    id: 1,
-    title: 'One',
-    body: 'Anar',
-    comments: [],
-  };
+  let elem;
+
+  if (process.browser) {
+    elem = window.location.href.split('/').pop();
+  }
+
+  let post = posts[Object.keys(posts)[elem - 1]];
+
+
+
+
   return (
     <MainLayout>
-      <button style={{ fontSize: 32 }} onClick={() => router.push('/posts')}>
+      <Button
+        style={{ fontSize: 32 }}
+        onClick={() => router.push('/posts')}
+        variant="outlined"
+        color="error">
         Назад
-      </button>
-      <div style={{ margin: '20px 0' }} key={post.id}>
+      </Button>
+      <div key={post.id}>
         <h1>{post.title}</h1>
         <span>{post.body}</span>
-      </div>
-
-      <div style={{ margin: '20px 0' }}>
-        <h1>Комментарии</h1>
-        {post.comments.map((comment) => {
-          return (
-            <div>
-              <div>Автор:{comment.id}</div>
-              <div>Автор:{comment.id}</div>
-              <div>{comment.body}</div>
-            </div>
-          );
-        })}
-        <input type="text" />
-        <input type="submit" />
+        <hr />
+        {post.comments ? (
+          post.comments.map((item) => {
+            return (
+              <div key={item.id}>
+                <p>{item.id}</p>
+                <span>{item.body}</span>
+              </div>
+            );
+          })
+        ) : (
+          <span>Комментариев нету</span>
+        )}
       </div>
     </MainLayout>
   );

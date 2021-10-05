@@ -9,7 +9,6 @@ interface PostItemProps {
 
 const PostItem: React.FC<PostItemProps> = ({ post }) => {
   const router = useRouter();
-  console.log(post);
   return (
     <div onClick={() => router.push('/posts/' + post.id)} className={styles.postItem}>
       <h1>
