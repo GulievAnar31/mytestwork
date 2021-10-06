@@ -4,6 +4,7 @@ import { useActions } from '../../hooks/useActions';
 import MainLayout from '../../layouts/MainLayout';
 import SendIcon from '@mui/icons-material/Send';
 import styles from '../../styles/AddPost.module.scss';
+import axios from 'axios';
 
 export default function index() {
   const { addPostActionCreator } = useActions();
@@ -26,7 +27,19 @@ export default function index() {
 
   const setPost = () => {
     addPostActionCreator(title, body, id);
+      axios
+        .post('/user', {
+          title, body, id
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
   };
+
+
 
   return (
     <MainLayout>
