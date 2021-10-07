@@ -12,9 +12,9 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
   return (
     <div onClick={() => router.push('/posts/' + post.id)} className={styles.postItem}>
       <h1>
-        {post.id}.{post.title}
+        {post.id ? post.id : 'Тип даннных не верен'}.{post.title ? post.title : 'Тип данных не верен'}
       </h1>
-      <span>{post.body}</span>
+      <span>{post.body ? post.body : 'Тип данных не верен'}</span>
     </div>
   );
 };
